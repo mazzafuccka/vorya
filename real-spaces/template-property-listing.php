@@ -16,7 +16,20 @@ $grid_layout_url = get_post_meta(get_the_ID(),'imic_property_grid_url',true);
 $listing_url = ($design_type=='listing')?$listing_layout_url:''; 
 $grid_url = ($design_type=='grid')?$grid_layout_url:''; 
 $listing_class = ($design_type=='listing')?'active':''; 
-$grid_class = ($design_type=='grid')?'active':''; ?>
+$grid_class = ($design_type=='grid')?'active':'';
+$buildings = array(
+	'building-1' => array(
+		'floors' => 20,
+		'deadline' => new DateTime('2015-04-15'),
+		'coords' => '47,62,106,61,134,72,135,118,30,116',
+	),
+	'building-2' => array(
+		'floors' => 15,
+		'deadline' => new DateTime('2015-10-01'),
+		'coords' => '32,157,133,157,127,192,127,211,28,211',
+	)
+);
+?>
 <!-- Start Content -->
   <div class="main" role="main">
       <div id="content" class="content full">
@@ -30,8 +43,8 @@ $grid_class = ($design_type=='grid')?'active':''; ?>
                               <a href="<?php echo $listing_url; ?>" class="<?php echo $listing_class; ?>"><i class="fa fa-th-list"></i></a>
                           </div>
                       </div>
-                    <?php echo $div; $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                       query_posts(array('post_type'=>'property','post_status'=>'publish','paged'=>$paged));
+                    <?php //echo $div; $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                       query_posts(array('post_type'=>'property','post_status'=>'publish'/*,'paged'=>$paged*/));
 								if(have_posts()):while(have_posts()):the_post(); 
 								$property_images = get_post_meta(get_the_ID(),'imic_property_sights',false);
 								$total_images = count($property_images);
@@ -69,7 +82,7 @@ $grid_class = ($design_type=='grid')?'active':''; ?>
                                                                     endif;  
                                                                     if(!empty($contract)) {
 								  $term = get_term( $contract[0], 'property-contract-type'); $property_term_type = $term->name; } 
-								  if($design_type=='listing') { ?>
+								  /*if($design_type=='listing') { ?>
                                                                  <li class="type-rent col-md-12">
                                                                 <?php 
                                                                echo '<div id="property'.get_the_ID().'" style="display:none;"><span class ="property_address">'.$property_address.'</span><span class ="property_price"><strong>'.$currency_symbol.'</strong> <span> '.$property_price.'</span></span><span class ="latitude">'.$property_longitude_and_latitude[0].'</span><span class ="longitude">'.$property_longitude_and_latitude[1].'</span>'.$image_container.'<span class ="property_url">'.get_permalink(get_the_ID()).'</span><span class ="property_image_url">'.IMIC_THEME_PATH.'/images/map-marker.png</span></div>'; ?>
@@ -113,10 +126,24 @@ $grid_class = ($design_type=='grid')?'active':''; ?>
                                                              }?>
                                                           </div>
                                                         </li>
-                                       <?php endwhile; endif;
-                                       echo '</ul>';?>
-                       </div>
-                      <?php pagination(); wp_reset_query(); ?>
+                                       <?php*/
+									   $property_building = get_post_meta(get_the_ID(),'imic_property_building',true);
+									   $property_availability = get_post_meta(get_the_ID(),'imic_property_availability',true);
+									   if (!empty($property_building) && $property_availability == 1)
+									   		$buildings[$property_building]['remaining']++;
+
+									endwhile; endif;
+                                    //echo '</ul>';?>
+                       <!--</div>-->
+                      <?php /*pagination(); */wp_reset_query(); ?>
+
+					 <img src="<?php echo get_template_directory_uri(); ?>/images/demo_simple.png" width="177" height="261" class="building-map" usemap="#building-maphilight">
+					 <map name="building-maphilight">
+						<?php foreach($buildings as $building): ?>
+							<area href="#" shape="poly" coords="<?php echo $building['coords']; ?>" alt="<?php echo __('Building','framework').' '/*.$name*/; ?>" title="<?php echo __('Number of remaining flats','framework').': '.$building['remaining'].'&#013;'.__('Turn of building','framework').': '.human_time_diff( current_time('timestamp'), $building['deadline']->getTimestamp() ); ?>">
+						<?php endforeach; ?>
+					 </map>
+
                   </div>
                   <!-- Start Sidebar -->
                   <?php if(!empty($sidebar)&&is_active_sidebar($sidebar[0])) { 
