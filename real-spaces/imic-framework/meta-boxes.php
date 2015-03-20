@@ -656,6 +656,34 @@ $meta_boxes[] = array(
             'desc' => __('Enter the Zoom level  for Property Map', 'framework'),
             'type' => 'text',
             ),
+		// Property Building
+		array(
+			'name' => __('Building', 'framework'),
+			'id' => $prefix . 'property_building',
+			'desc' => __("Enter the Number of Building.", 'framework'),
+			'type' => 'text',
+			'std' => '',
+		),
+		// Property Floor
+		array(
+			'name' => __('Floor', 'framework'),
+			'id' => $prefix . 'property_floor',
+			'desc' => __("Enter the Number of Floor.", 'framework'),
+			'type' => 'text',
+			'std' => '',
+		),
+		// Property Availability
+		array(
+			'name' => __('Property Availability', 'framework'),
+			'id' => $prefix . 'property_availability',
+			'desc' => __('Select Yes if this property is available.', 'framework'),
+			'type' => 'select',
+			'options' => array(
+				'0' => __('No', 'framework'),
+				'1' => __('Yes', 'framework'),
+			),
+			'std' => 0,
+		),
       )
 );
 /* Testimonial Meta Box
