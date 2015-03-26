@@ -17,13 +17,13 @@ class WPPropertyMapped {
     }
 	
 	function enqueue_scripts() {
-		wp_register_script('jquery_maphilight', plugins_url( '/js/jquery.maphilight.js', __FILE__ ), array( 'jquery' ) );
-		wp_register_script('jquery_building_map', plugins_url( '/js/building-map.js', __FILE__ ), array( 'jquery' ) );
-		
-		wp_enqueue_script('jquery_maphilight');
-		wp_enqueue_script('jquery_building_map');
+		wp_register_script( 'maphilight', plugins_url( '/js/jquery.maphilight.js', __FILE__ ), array( 'jquery' ) );
+		wp_register_script( 'qtip', plugins_url( '/js/jquery.qtip-1.0.0-rc3.js', __FILE__ ), array( 'jquery' ) );
+		wp_register_script( 'building-map', plugins_url( '/js/building-map.js', __FILE__ ), array( 'jquery', 'qtip', 'maphilight' ) );
+
+		wp_enqueue_script( 'building-map' );
 	}
-	
+
 	function add_additional_fields() {
 		global $meta_boxes;
 
@@ -60,18 +60,8 @@ class WPPropertyMapped {
 	}
 	
 	function echo_mapped() {
-		$buildings = array(
-			'building-1' => array(
-				'floors' => 20,
-				'deadline' => new DateTime('2015-04-15'),
-				'coords' => '47,62,106,61,134,72,135,118,30,116',
-			),
-			'building-2' => array(
-				'floors' => 15,
-				'deadline' => new DateTime('2015-10-01'),
-				'coords' => '32,157,133,157,127,192,127,211,28,211',
-			)
-		);
+		$buildings = include plugin_dir_path( __FILE__ ) . 'buildings.config.php';
+
 		query_posts( array( 'post_type' => 'property' , 'post_status' => 'publish' ) );
 		while ( have_posts() ) {
 			the_post();
@@ -80,15 +70,14 @@ class WPPropertyMapped {
 			if ( ! empty( $property_building ) && $property_availability == 1 )
 			$buildings[ $property_building ]['remaining'] ++;
 		}
-		//$this->add_additional_fields();
 		wp_reset_query();
 		?>
-<img src="<?php echo plugins_url( '/images/demo_simple.png', __FILE__ ); ?>" width="177" height="261" class="building-map" usemap="#building-maphilight">
-	<map name="building-maphilight">
-<?php foreach($buildings as $building): ?>
-		<area href="#" shape="poly" coords="<?php echo $building['coords']; ?>" alt="<?php echo __('Building','framework').' '/*.$name*/; ?>" title="<?php echo __('Number of remaining flats','framework').': '.$building['remaining'].'&#013;'.__('Turn of building','framework').': '.human_time_diff( current_time('timestamp'), $building['deadline']->getTimestamp() ); ?>">
+<img src="<?php echo plugins_url( '/images/ACCamera_10.jpg', __FILE__ ); ?>" width="900" height="600" class="building-map" usemap="#building-maphilight">
+<map name="building-maphilight">
+<?php foreach( $buildings as $building ): ?>
+	<area href="#" shape="poly" coords="<?php echo $building['coords']; ?>" alt="<?php echo esc_attr( __( 'Building', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( __( 'Number remaining flats','framework' ).': '.$building['remaining'].'<br>'.__( 'Turn building', 'framework' ).': '.human_time_diff( current_time( 'timestamp' ), $building['deadline']->getTimestamp() ) ); ?>">
 <?php endforeach; ?>
-	</map>
+</map>
 <?php
     }
 }
