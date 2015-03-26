@@ -1,17 +1,22 @@
 jQuery( document ).ready(function( $ ) {
 	$( 'map[name="building-maphilight"] area' ).qtip( {
 		style: {
-			name: 'dark',
 			border: {
 				width: 0,
 				radius: 4
 			},
 			tip: true
+		},
+		position: {
+			corner: {
+				target: 'topMiddle',
+				tooltip: 'center'
+			}
 		}
 	} );
 	$( '.building-map' ).maphilight( {
 		fill: true,
-		fillColor: '00000',
+		fillColor: 'ffffff',
 		fillOpacity: 0.3,
 		stroke: false,
 		strokeColor: '8098b5',
