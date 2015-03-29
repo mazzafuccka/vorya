@@ -1,0 +1,19 @@
+.floors-building > ul {
+	list-style-type: none;
+}
+.floors-building > ul > li {
+	width: 200px;
+	background-color: #eee;
+	border-bottom: 1px solid white;
+	height: 20px;
+	cursor: pointer;
+}
+.floors-building > ul > li.left-floor {
+	background-color: #aaa;
+}
+.floors-building > ul > li:hover {
+	background-color: red;
+}
+.floors-building > ul > li.left-floor:hover {
+	background-color: green;
+}

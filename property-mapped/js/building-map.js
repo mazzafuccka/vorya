@@ -14,6 +14,7 @@ jQuery( document ).ready(function( $ ) {
 			}
 		}
 	} );
+	
 	$( '.building-map' ).maphilight( {
 		fill: true,
 		fillColor: 'ffffff',
@@ -25,12 +26,41 @@ jQuery( document ).ready(function( $ ) {
 		fade: true,
 		alwaysOn: false
 	} );
+	
 	$( 'map[name="building-maphilight"] area' ).mouseover( function( e ) {
-		console.log( 'mouseover' );
+		//console.log( 'mouseover' );
 	} ).mouseout( function( e ) {
-		console.log( 'mouseout' );
+		//console.log( 'mouseout' );
 	} ).click( function( e ) {
 		e.preventDefault();
-		console.log( 'click' );
+		dlg.text( '' );
+		var $ul = $( '<ul>' ).appendTo( dlg );
+		var $this = $( this );
+		var floors_count = $this.data( 'floorsCount' );
+		var left_floor = $this.data( 'leftFloor' );
+		for ( var i = floors_count - 1; i > 0; i-- ) {
+			var properties_count = ( Object.prototype.toString.call( left_floor ) === '[object Object]' && (i + 1).toString() in left_floor ) ? left_floor[ i + 1 ] : 0;
+			$ul.append( '<li' + ( properties_count > 0 ? ' class="left-floor"' : '' ) + '><a href="#">' + ( properties_count > 0 ? '<span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] : '' ) + '</span></a></li>' );
+		}
+		dlg.dialog( 'open' );
 	} );
+	
+	var dlg = $( '<div class="floors-building">' )
+	.appendTo( 'body' );
+	
+	dlg.dialog( {
+		'dialogClass' : 'wp-dialog',
+		'modal' : true,
+		'autoOpen' : false,
+		'closeOnEscape' : true,
+		'buttons' : [
+			{
+				'text' : 'Close',
+				'class' : 'button-primary',
+				'click' : function() {
+					$(this).dialog( 'close' );
+				}
+			}
+		]
+	} )
 } );
