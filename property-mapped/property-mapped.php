@@ -6,16 +6,66 @@
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
+register_activation_hook(   __FILE__, array( 'WPPropertyMapped', 'on_activation' ) );
+register_deactivation_hook( __FILE__, array( 'WPPropertyMapped', 'on_deactivation' ) );
+register_uninstall_hook(    __FILE__, array( 'WPPropertyMapped', 'on_uninstall' ) );
+
+add_action( 'plugins_loaded', array( 'WPPropertyMapped', 'init' ) );
+
 class WPPropertyMapped {
+
+	protected static $instance;
+
     public function __construct()
     {
 		add_action( 'admin_init', array( &$this, 'add_additional_fields' ));
-
 		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ) );
-
 		add_action( 'property_mapped', array( &$this, 'echo_mapped' ) );
     }
-	
+
+	public static function init()
+	{
+		is_null( self::$instance ) AND self::$instance = new self;
+		return self::$instance;
+	}
+
+	public static function on_activation()
+	{
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+		check_admin_referer( "activate-plugin_{$plugin}" );
+
+		// Расcкомментируйте эту строку, чтобы увидеть функцию в действии
+		// exit( var_dump( $_GET ) );
+	}
+
+	public static function on_deactivation()
+	{
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+		check_admin_referer( "deactivate-plugin_{$plugin}" );
+
+		// Расcкомментируйте эту строку, чтобы увидеть функцию в действии
+		// exit( var_dump( $_GET ) );
+	}
+
+	public static function on_uninstall()
+	{
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+		check_admin_referer( 'bulk-plugins' );
+
+		// Важно: проверим тот ли это файл, который
+		// был зарегистрирован во время удаления плагина.
+		if ( __FILE__ != WP_UNINSTALL_PLUGIN )
+			return;
+
+		// Расcкомментируйте эту строку, чтобы увидеть функцию в действии
+		// exit( var_dump( $_GET ) );
+	}
+
 	function enqueue_scripts() {
 		wp_register_script( 'maphilight', plugins_url( '/js/jquery.maphilight.js', __FILE__ ), array( 'jquery' ) );
 		wp_register_script( 'qtip', plugins_url( '/js/jquery.qtip-1.0.0-rc3.js', __FILE__ ), array( 'jquery' ) );
@@ -90,4 +140,4 @@ class WPPropertyMapped {
     }
 }
 
-$wppropertymapped = new WPPropertyMapped();
+//$wppropertymapped = new WPPropertyMapped();
