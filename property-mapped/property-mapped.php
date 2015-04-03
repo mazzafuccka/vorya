@@ -80,6 +80,8 @@ class WPPropertyMapped {
 	function add_additional_fields() {
 		global $meta_boxes;
 
+		$prefix = 'imic_';
+		
 		// Property Building
 		$meta_boxes[16]['fields'][] = array(
 			'name' => __( 'Building', 'framework' ),
@@ -100,9 +102,9 @@ class WPPropertyMapped {
 
 		// Property Number
 		$meta_boxes[16]['fields'][] = array(
-			'name' => __( 'Number', 'framework' ),
-			'id' => $prefix . 'property_number',
-			'desc' => __( "Enter the Number of Property.", 'framework' ),
+			'name' => __( 'Number on Floor', 'framework' ),
+			'id' => $prefix . 'property_number_floor',
+			'desc' => __( "Enter the Number of Property on Floor.", 'framework' ),
 			'type' => 'text',
 			'std' => '',
 		);
