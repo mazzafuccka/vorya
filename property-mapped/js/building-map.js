@@ -14,6 +14,8 @@ jQuery( document ).ready(function( $ ) {
 			}
 		}
 	} );
+
+	$('.building-map').rwdImageMaps();
 	
 	$( '.building-map' ).maphilight( {
 		fill: true,
@@ -40,7 +42,7 @@ jQuery( document ).ready(function( $ ) {
 		var left_floor = $this.data( 'leftFloor' );
 		for ( var i = floors_count - 1; i >= 0; i-- ) {
 			var properties_count = ( Object.prototype.toString.call( left_floor ) === '[object Object]' && (i + 1).toString() in left_floor ) ? left_floor[ i + 1 ] : 0;
-			$ul.append( '<li' + ( properties_count > 0 ? ' class="left-floor"' : '' ) + '><a href="index.php?scheme=1&building=' + $this.data( 'id' ) + '&floor=' + (i + 1) + '">' + ( properties_count > 0 ? '<span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] : '' ) + '</span></a></li>' );
+			$ul.append( '<li' + ( properties_count > 0 ? ' class="left-floor"' : '' ) + '><a href="index.php?scheme=1&building=' + $this.data( 'id' ) + '&floor=' + (i + 1) + '"><span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] + '</span></a></li>' );
 		}
 		dlg.dialog( 'open' );
 	} );

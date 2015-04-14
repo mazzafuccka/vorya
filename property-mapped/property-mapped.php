@@ -67,7 +67,8 @@ class WPPropertyMapped {
 	function enqueue_scripts() {
 		wp_register_script( 'maphilight', plugins_url( '/js/jquery.maphilight.js', __FILE__ ), array( 'jquery' ) );
 		wp_register_script( 'qtip', plugins_url( '/js/jquery.qtip-1.0.0-rc3.js', __FILE__ ), array( 'jquery' ) );
-		wp_register_script( 'building-map', plugins_url( '/js/building-map.js', __FILE__ ), array( 'jquery', 'qtip', 'maphilight', 'jquery-ui-dialog' ) );
+		wp_register_script( 'rwd-image-maps', plugins_url( '/js/jquery.rwdImageMaps.min.js', __FILE__ ), array( 'jquery' ) );
+		wp_register_script( 'building-map', plugins_url( '/js/building-map.js', __FILE__ ), array( 'jquery', 'qtip', 'maphilight', 'jquery-ui-dialog', 'rwd-image-maps' ) );
 		wp_register_style( 'building-map', plugins_url( '/css/building-map.css', __FILE__ ), array( 'wp-jquery-ui-dialog' ) );
 
 		wp_enqueue_script( 'building-map' );
@@ -125,6 +126,15 @@ class WPPropertyMapped {
 	
 	function echo_mapped() {
 		$buildings = include plugin_dir_path( __FILE__ ) . 'buildings.config.php';
+		
+		array_walk( $buildings, function (&$building, $id) {
+			
+			$building['left-building'] = 0;
+			
+			for ( $i = 0; $i < $building['floors']; $i++ ) {
+				$building['left-floor'][ $i + 1 ] = 0;
+			}
+		} );
 
 		query_posts( array( 'post_type' => 'property' , 'post_status' => 'publish' ) );
 		while ( have_posts() ) {

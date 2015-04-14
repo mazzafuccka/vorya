@@ -1,3 +1,7 @@
+.building-map {
+	width: 100%;
+	background-size: contain !important;
+}
 .floors-building > ul {
 	list-style-type: none;
 }
