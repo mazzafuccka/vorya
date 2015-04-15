@@ -39,7 +39,12 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 				continue;
 			$position = $schemes[ $scheme ]['properties'][ $property_number_floor ]['position'];
 			?>
-		<a href="#" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
+		<div>
+			<a href="#" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
+			<div style="display:none">
+				<a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a>
+			</div>
+		</div>
 			<?php
 		}
 		wp_reset_postdata();
