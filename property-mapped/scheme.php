@@ -4,7 +4,6 @@ $buildings = include plugin_dir_path( __FILE__ ) . 'buildings.config.php';
 $floor = (int) $_GET['floor'];
 
 if ( ! array_key_exists( $_GET['building'], $buildings ) || $floor < 1 || $floor > $buildings[ $_GET['building'] ]['floors'] ) {
-	header( 'HTTP/1.1 400 Bad Request' );
 	echo 'Bad request';
 	exit();
 }
@@ -18,24 +17,15 @@ foreach( $buildings[ $_GET['building'] ]['schemes'] as $sch ) {
 }
 
 if ( empty( $scheme ) ) {
-	header( 'HTTP/1.1 500 Does Not Found Scheme' );
 	echo 'Does Not Found Scheme';
 	exit();
 }
 
 $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Scheme</title>
-<link href="<?php echo plugins_url( '/css/scheme.css', __FILE__ ); ?>" rel="stylesheet">
-</head>
-
-<body>
-<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
-<div class="points">
+<div class="scheme">
+	<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
+	<div class="points">
 <?php
 		$args = array( 'post_type' => 'property' , 'post_status' => 'publish' );
 		$properties = get_posts( $args );
@@ -49,11 +39,10 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 				continue;
 			$position = $schemes[ $scheme ]['properties'][ $property_number_floor ]['position'];
 			?>
-	<a href="#" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
+		<a href="#" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
 			<?php
 		}
 		wp_reset_postdata();
 		?>
+	</div>
 </div>
-</body>
-</html>

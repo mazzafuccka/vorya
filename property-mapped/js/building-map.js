@@ -40,9 +40,11 @@ jQuery( document ).ready(function( $ ) {
 		var $this = $( this );
 		var floors_count = $this.data( 'floorsCount' );
 		var left_floor = $this.data( 'leftFloor' );
+		var url = window.location.href;
+		url += url.split('?')[1] ? '&' : '?';
 		for ( var i = floors_count - 1; i >= 0; i-- ) {
 			var properties_count = ( Object.prototype.toString.call( left_floor ) === '[object Object]' && (i + 1).toString() in left_floor ) ? left_floor[ i + 1 ] : 0;
-			$ul.append( '<li' + ( properties_count > 0 ? ' class="left-floor"' : '' ) + '><a href="index.php?scheme=1&building=' + $this.data( 'id' ) + '&floor=' + (i + 1) + '"><span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] + '</span></a></li>' );
+			$ul.append( '<li' + ( properties_count > 0 ? ' class="left-floor"' : '' ) + '><a href="' + url + 'scheme=1&building=' + $this.data( 'id' ) + '&floor=' + (i + 1) + '"><span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] + '</span></a></li>' );
 		}
 		dlg.dialog( 'open' );
 	} );

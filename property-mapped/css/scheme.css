@@ -1,3 +1,7 @@
-.points a {
-	position:absolute;
+.scheme {
+	position: relative;
+	display: inline-block;
+}
+.scheme .points a {
+	position: absolute;
 }
