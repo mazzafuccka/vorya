@@ -37,13 +37,14 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 <img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
 <div class="points">
 <?php
-		query_posts( array( 'post_type' => 'property' , 'post_status' => 'publish' ) );
-		while ( have_posts() ) {
-			the_post();
-			$property_building = get_post_meta( get_the_ID() , 'imic_property_building' , true );
-			$property_floor = get_post_meta( get_the_ID() , 'imic_property_floor' , true );
-			$property_number_floor = get_post_meta( get_the_ID() , 'imic_property_number_floor' , true );
-			$property_availability = get_post_meta( get_the_ID() , 'imic_property_availability' , true );
+		$args = array( 'post_type' => 'property' , 'post_status' => 'publish' );
+		$properties = get_posts( $args );
+		foreach( $properties as $property ) {
+			setup_postdata($property);
+			$property_building = get_post_meta( $property->ID , 'imic_property_building' , true );
+			$property_floor = get_post_meta( $property->ID , 'imic_property_floor' , true );
+			$property_number_floor = get_post_meta( $property->ID , 'imic_property_number_floor' , true );
+			$property_availability = get_post_meta( $property->ID , 'imic_property_availability' , true );
 			if ( $property_building != $_GET['building'] || $property_floor != $floor || empty($property_number_floor ) )
 				continue;
 			$position = $schemes[ $scheme ]['properties'][ $property_number_floor ]['position'];
@@ -51,7 +52,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 	<a href="#" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
 			<?php
 		}
-		wp_reset_query();
+		wp_reset_postdata();
 		?>
 </div>
 </body>

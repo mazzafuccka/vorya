@@ -136,18 +136,20 @@ class WPPropertyMapped {
 			}
 		} );
 
-		query_posts( array( 'post_type' => 'property' , 'post_status' => 'publish' ) );
-		while ( have_posts() ) {
-			the_post();
-			$property_building = get_post_meta( get_the_ID() , 'imic_property_building' , true );
-			$property_floor = get_post_meta( get_the_ID() , 'imic_property_floor' , true );
-			$property_availability = get_post_meta( get_the_ID() , 'imic_property_availability' , true );
+		$args = array( 'post_type' => 'property' , 'post_status' => 'publish' );
+		$properties = get_posts( $args );
+
+		foreach( $properties as $property ) {
+			setup_postdata($property);
+			$property_building = get_post_meta( $property->ID , 'imic_property_building' , true );
+			$property_floor = get_post_meta( $property->ID , 'imic_property_floor' , true );
+			$property_availability = get_post_meta( $property->ID , 'imic_property_availability' , true );
 			if ( ! empty( $property_building ) && $property_availability == 1 )
 				$buildings[ $property_building ]['left-building'] ++;
 				if ( ! empty( $property_floor ) )
 					$buildings[ $property_building ]['left-floor'][ $property_floor ] ++;
 		}
-		wp_reset_query();
+		wp_reset_postdata();
 		?>
 <img src="<?php echo plugins_url( '/images/ACCamera_10.jpg', __FILE__ ); ?>" class="building-map" usemap="#building-maphilight">
 <map name="building-maphilight">
