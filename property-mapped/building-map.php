@@ -10,7 +10,7 @@ array_walk( $buildings, function (&$building, $id) {
 	}
 } );
 
-$args = array( 'post_type' => 'property' , 'post_status' => 'publish' );
+$args = array( 'post_type' => 'property' , 'post_status' => 'publish', 'numberposts' => -1 );
 $properties = get_posts( $args );
 
 foreach( $properties as $property ) {

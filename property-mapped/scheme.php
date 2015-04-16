@@ -27,7 +27,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 	<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
 	<div class="points">
 <?php
-		$args = array( 'post_type' => 'property' , 'post_status' => 'publish' );
+		$args = array( 'post_type' => 'property' , 'post_status' => 'publish', 'numberposts' => -1 );
 		$properties = get_posts( $args );
 		foreach( $properties as $property ) {
 			setup_postdata($property);
