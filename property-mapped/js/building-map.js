@@ -15,7 +15,7 @@ jQuery( document ).ready(function( $ ) {
 		}
 	} );
 
-	$('.building-map').rwdImageMaps();
+	$( '.building-map' ).rwdImageMaps();
 	
 	$( '.building-map' ).maphilight( {
 		fill: true,
@@ -28,6 +28,13 @@ jQuery( document ).ready(function( $ ) {
 		fade: true,
 		alwaysOn: false
 	} );
+	
+	function resizeCanvas() {
+		$( '.building-map canvas' ).width( $( '.building-map' ).width() ).height( $( '.building-map' ).height() );
+	}
+	
+	$( window ).resize( resizeCanvas );
+	resizeCanvas();
 	
 	$( 'map[name="building-maphilight"] area' ).mouseover( function( e ) {
 		//console.log( 'mouseover' );
