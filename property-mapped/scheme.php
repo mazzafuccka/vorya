@@ -39,10 +39,14 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 				continue;
 			$position = $schemes[ $scheme ]['properties'][ $property_number_floor ]['position'];
 			?>
-		<div>
-			<a href="#" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
-			<div style="display:none">
-				<a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a>
+		<div class="point-block">
+			<a href="#" class="point" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
+			<div class="about" style="display:none" data-title="<?php echo esc_attr( $property->post_title ); ?>">
+				<p><?php echo __( 'Property','framework' ); ?>: <a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a></p>
+				<ul>
+					<li><a href="#"><?php echo __( 'How to buy','framework' ); ?></a></li>
+					<li><a href="#"><?php echo __( 'Example of finishes','framework' ); ?></a></li>
+				</ul>
 			</div>
 		</div>
 			<?php

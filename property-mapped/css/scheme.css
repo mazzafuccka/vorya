@@ -2,6 +2,6 @@
 	position: relative;
 	display: inline-block;
 }
-.scheme .points a {
+.scheme .point {
 	position: absolute;
 }
