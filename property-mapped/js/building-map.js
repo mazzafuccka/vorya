@@ -1,40 +1,16 @@
 jQuery( document ).ready(function( $ ) {
-	$( 'map[name="building-maphilight"] area' ).qtip( {
-		style: {
-			border: {
-				width: 0,
-				radius: 4
+	
+	$( "img[usemap]" ).mapify( {
+		popOver: {
+			content: function( zone ) {
+				return "<strong>" + zone.data( "title" ) + "</strong>";
 			},
-			tip: true
-		},
-		position: {
-			corner: {
-				target: 'topMiddle',
-				tooltip: 'center'
-			}
+			delay: 0.7,
+			margin: "15px",
+			height: "130px",
+			width: "260px"
 		}
 	} );
-
-	$( '.building-map' ).rwdImageMaps();
-	
-	$( '.building-map' ).maphilight( {
-		fill: true,
-		fillColor: 'ffffff',
-		fillOpacity: 0.3,
-		stroke: false,
-		strokeColor: '8098b5',
-		strokeOpacity: 1,
-		strokeWidth: 1,
-		fade: true,
-		alwaysOn: false
-	} );
-	
-	function resizeCanvas() {
-		$( '.building-map canvas' ).width( $( '.building-map' ).width() ).height( $( '.building-map' ).height() );
-	}
-	
-	$( window ).resize( resizeCanvas );
-	resizeCanvas();
 	
 	$( 'map[name="building-maphilight"] area' ).mouseover( function( e ) {
 		//console.log( 'mouseover' );
@@ -51,7 +27,7 @@ jQuery( document ).ready(function( $ ) {
 		url += url.split('?')[1] ? '&' : '?';
 		for ( var i = floors_count - 1; i >= 0; i-- ) {
 			var properties_count = ( Object.prototype.toString.call( left_floor ) === '[object Object]' && (i + 1).toString() in left_floor ) ? left_floor[ i + 1 ] : 0;
-			$ul.append( '<li' + ( properties_count > 0 ? ' class="left-floor"' : '' ) + '><a href="' + url + 'scheme=1&building=' + $this.data( 'id' ) + '&floor=' + (i + 1) + '"><span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] + '</span></a></li>' );
+			$ul.append( '<li' + ( properties_count > 0 ? ' class="aviability"' : '' ) + '><span class="number">' + (i + 1) + '</span> <a href="' + url + 'scheme=1&building=' + $this.data( 'id' ) + '&floor=' + (i + 1) + '"><span class="property-count">' + buildingMapL10n.available_apartments + ': ' + left_floor[ i + 1 ] + '</span></a></li>' );
 		}
 		dlg.dialog( 'open' );
 	} );

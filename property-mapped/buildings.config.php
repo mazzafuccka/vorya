@@ -3,7 +3,7 @@ return array(
 	'building-1' => array(
 		'floors' => 20,
 		'deadline' => new DateTime( '2015-04-15' ),
-		'coords' => '666, 459, 773, 415, 765, 212, 734, 195, 703, 205, 642, 285, 621, 433, 634, 450',
+		'coords' => '625, 103, 345, 218, 3, 559, 312, 798, 409, 830, 513, 692, 500, 674, 746, 331, 668, 151',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )
@@ -12,7 +12,7 @@ return array(
 	'building-2' => array(
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '699, 111, 643, 208, 644, 237, 675, 239, 710, 194, 765, 208, 773, 235, 839, 171, 799, 131, 822, 96, 780, 78, 753, 114',
+		'coords' => '798, 267, 505, 675, 722, 917, 818, 947, 1005, 582, 918, 292, 918, 292',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )
@@ -21,7 +21,7 @@ return array(
 	'building-3' => array(
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '502, 129, 475, 202, 469, 285, 508, 298, 518, 288, 531, 242, 553, 149, 529, 131',
+		'coords' => '1425, 304, 1356, 494, 1334, 778, 1463, 812, 1580, 335',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )
@@ -30,7 +30,7 @@ return array(
 	'building-4' => array(
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '284, 345, 354, 225, 322, 129, 283, 117, 182, 254, 191, 268, 253, 339',
+		'coords' => '2218, 1120, 1896, 1260, 1759, 1219, 1819, 753, 2022, 485, 2194, 521',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )
@@ -39,7 +39,7 @@ return array(
 	'building-5' => array(
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '11, 216, 120, 303, 147, 305, 179, 260, 187, 240, 263, 139, 234, 76, 217, 59, 118, 98',
+		'coords' => '1988, 247, 1818, 549, 1823, 627, 1904, 634, 2017, 480, 2201, 516, 2206, 626, 2399, 431, 2287, 322, 2351, 208, 2213, 153, 2137, 264',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )

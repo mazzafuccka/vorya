@@ -1,11 +1,8 @@
-.building-map {
-	width: 100%;
-	background-size: contain !important;
+.mapify-hover{
+    fill: rgba(0,0,0,0.15);
+    stroke: #fff;
+    stroke-width: 2;
 }
-/*.building-map canvas {
-	width: 100% !important;
-	height: 100% !important;
-}*/
 .floors-building > ul {
 	list-style-type: none;
 }
@@ -16,12 +13,12 @@
 	height: 20px;
 	cursor: pointer;
 }
-.floors-building > ul > li.left-floor {
+.floors-building > ul > li.aviability {
 	background-color: #aaa;
 }
 .floors-building > ul > li:hover {
 	background-color: red;
 }
-.floors-building > ul > li.left-floor:hover {
+.floors-building > ul > li.aviability:hover {
 	background-color: green;
 }

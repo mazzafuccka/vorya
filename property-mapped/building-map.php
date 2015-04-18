@@ -25,8 +25,8 @@ foreach( $properties as $property ) {
 }
 wp_reset_postdata();
 		?>
-<img src="<?php echo plugins_url( '/images/ACCamera_10.jpg', __FILE__ ); ?>" class="building-map" usemap="#building-maphilight">
-<map name="building-maphilight">
+<img src="<?php echo plugins_url( '/images/ACCamera_10_2560.jpg', __FILE__ ); ?>" class="building-map" width="2560" height="1600" border="0" usemap="#building-maphilight">
+<map name="building-maphilight" id="building-maphilight">
 <?php foreach( $buildings as $id => $building ): ?>
 	<area href="#" shape="poly" coords="<?php echo $building['coords']; ?>" alt="<?php echo esc_attr( __( 'Building', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( __( 'Number remaining flats','framework' ).': '.$building['left-building'].'<br>'.__( 'Turn building', 'framework' ).': '.human_time_diff( current_time( 'timestamp' ), $building['deadline']->getTimestamp() ) ); ?>" data-floors-count="<?php echo $building['floors']; ?>" data-left-floor="<?php echo esc_attr( json_encode( $building['left-floor'] ) ); ?>" data-id="<?php echo $id; ?>">
 <?php endforeach; ?>

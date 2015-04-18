@@ -40,7 +40,9 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 			$position = $schemes[ $scheme ]['properties'][ $property_number_floor ]['position'];
 			?>
 		<div class="point-block">
-			<a href="#" class="point" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" alt="<?php echo esc_attr( __( 'Property', 'framework' ).' '/*.$name*/ ); ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">+</a>
+			<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
+				<?php echo $property_availability ? '+' : ''; ?>
+			</button>
 			<div class="about" style="display:none" data-title="<?php echo esc_attr( $property->post_title ); ?>">
 				<p><?php echo __( 'Property','framework' ); ?>: <a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a></p>
 				<ul>

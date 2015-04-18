@@ -56,14 +56,13 @@ class WPPropertyMapped {
 	}
 
 	function enqueue_scripts() {
-		wp_register_script( 'maphilight', plugins_url( '/js/jquery.maphilight.js', __FILE__ ), array( 'jquery' ) );
-		wp_register_script( 'qtip', plugins_url( '/js/jquery.qtip-1.0.0-rc3.js', __FILE__ ), array( 'jquery' ) );
-		wp_register_script( 'rwd-image-maps', plugins_url( '/js/jquery.rwdImageMaps.min.js', __FILE__ ), array( 'jquery' ) );
-		wp_register_script( 'building-map', plugins_url( '/js/building-map.js', __FILE__ ), array( 'jquery', 'qtip', 'maphilight', 'jquery-ui-dialog', 'rwd-image-maps' ) );
+		wp_register_script( 'mapify', plugins_url( '/js/jquery.mapify.min.js', __FILE__ ), array( 'jquery' ) );
+		wp_register_script( 'building-map', plugins_url( '/js/building-map.js', __FILE__ ), array( 'jquery', 'mapify', 'jquery-ui-dialog' ) );
 
 		wp_register_script( 'building-scheme', plugins_url( '/js/scheme.js', __FILE__ ), array( 'jquery', 'jquery-ui-dialog' ) );
 
-		wp_register_style( 'building-map', plugins_url( '/css/building-map.css', __FILE__ ), array( 'wp-jquery-ui-dialog' ) );
+		wp_register_style( 'mapify', plugins_url( '/css/jquery.mapify.min.css', __FILE__ ), array( ) );
+		wp_register_style( 'building-map', plugins_url( '/css/building-map.css', __FILE__ ), array( 'wp-jquery-ui-dialog', 'mapify' ) );
 		
 		wp_register_style( 'building-scheme', plugins_url( '/css/scheme.css', __FILE__ ), array( 'wp-jquery-ui-dialog' ) );
 
@@ -133,5 +132,3 @@ class WPPropertyMapped {
 		}
     }
 }
-
-//$wppropertymapped = new WPPropertyMapped();
