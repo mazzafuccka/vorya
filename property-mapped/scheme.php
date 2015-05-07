@@ -37,10 +37,10 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 			$property_availability = get_post_meta( $property->ID , 'imic_property_availability' , true );
 			if ( $property_building != $_GET['building'] || $property_floor != $floor || empty($property_number_floor ) )
 				continue;
-			$position = $schemes[ $scheme ]['properties'][ $property_number_floor ]['position'];
+			$position = $schemes[ $scheme ]['placements'][ $property_number_floor ]['position'];
 			?>
 		<div class="point-block">
-			<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'top:' . $position['y'] . 'px;left:' . $position['x'] . 'px'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
+			<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'left:' . $position[0] . 'px;top:' . $position[1] . 'px'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
 				<?php echo $property_availability ? '+' : ''; ?>
 			</button>
 			<div class="about" style="display:none" data-title="<?php echo esc_attr( $property->post_title ); ?>">

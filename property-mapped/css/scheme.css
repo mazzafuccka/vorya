@@ -11,10 +11,11 @@
 	height: 24px;
 	margin-left: -12px;
 	margin-top: -12px;
-	border-color: red;
-    color: red;
+	border-color: white;
+	border-width: 2px;
+    color: white;
+	background-color: red;
 }
 .scheme .point.aviability {
-	border-color: green;
-    color: green;
+	background-color: green;
 }

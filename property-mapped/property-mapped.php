@@ -105,7 +105,7 @@ class WPPropertyMapped {
 		$meta_boxes[16]['fields'][] = array(
 			'name' => __( 'Number on Floor', 'framework' ),
 			'id' => $prefix . 'property_number_floor',
-			'desc' => __( "Enter the Number of Property on Floor.", 'framework' ),
+			'desc' => __( "Enter the Number of Placement on Floor.", 'framework' ),
 			'type' => 'text',
 			'std' => '',
 		);
