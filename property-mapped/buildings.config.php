@@ -4,55 +4,77 @@ return array(
 		'title' => '1',
 		'floors' => 20,
 		'deadline' => new DateTime( '2015-04-15' ),
-		'coords' => '625, 103, 345, 218, 3, 559, 312, 798, 409, 830, 513, 692, 500, 674, 746, 331, 668, 151',
+		'coords' => '5, 375, 122, 596, 200, 604, 371, 436, 341, 363, 461, 256, 432, 179, 409, 164, 210, 230',
 		'schemes' => array(
 			array( 1, 'rotary-first' ),
 			array( 2, 'rotary-standard' )
 		),
-		'label' => array('position' => array(111, 111))
+		'label' => array('position' => array(8, 58))
 	),
 	'2' => array(
 		'title' => '2',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '798, 267, 505, 675, 722, 917, 818, 947, 1005, 582, 918, 292, 918, 292',
+		'coords' => '528, 202, 347, 362, 436, 590, 515, 597, 661, 410, 597, 204',
 		'schemes' => array(
 			array( 1, 'two-sections-first' ),
 			array( 2, 'two-sections-standard' )
 		),
-		'label' => array('position' => array(311, 311))
+		'label' => array('position' => array(19, 58))
 	),
 	'3' => array(
 		'title' => '3',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '1425, 304, 1356, 494, 1334, 778, 1463, 812, 1580, 335',
+		'coords' => '842, 247, 887, 462, 964, 464, 1005, 383, 970, 175, 897, 170',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )
 		),
-		'label' => array('position' => array(681, 211))
+		'label' => array('position' => array(35, 47))
 	),
 	'4' => array(
 		'title' => '4',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '2218, 1120, 1896, 1260, 1759, 1219, 1819, 753, 2022, 485, 2194, 521',
+		'coords' => '1111, 352, 1138, 585, 1233, 586, 1274, 400, 1256, 189, 1171, 188',
 		'schemes' => array(
 			array( 1, 'two-sections-first' ),
 			array( 2, 'two-sections-standard' )
 		),
-		'label' => array('position' => array(1000, 300))
+		'label' => array('position' => array(46, 58))
 	),
 	'5' => array(
 		'title' => '5',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
-		'coords' => '1988, 247, 1818, 549, 1823, 627, 1904, 634, 2017, 480, 2201, 516, 2206, 626, 2399, 431, 2287, 322, 2351, 208, 2213, 153, 2137, 264',
+		'coords' => '1177, 114, 1181, 184, 1258, 185, 1271, 331, 1312, 368, 1367, 347, 1360, 79, 1305, 70, 1263, 106',
 		'schemes' => array(
 			array( 1, 'scheme-1' ),
 			array( 5, 'scheme-2' )
 		),
-		'label' => array('position' => array(1000, 140))
+		'label' => array('position' => array(50, 29))
+	),
+	'6' => array(
+		'title' => '6',
+		'floors' => 15,
+		'deadline' => new DateTime( '2015-10-01' ),
+		'coords' => '1978, 378, 2063, 575, 2157, 574, 2211, 407, 2141, 296, 2150, 284, 2184, 145, 2111, 121, 2019, 214',
+		'schemes' => array(
+			array( 1, 'scheme-1' ),
+			array( 5, 'scheme-2' )
+		),
+		'label' => array('position' => array(81, 52))
+	),
+	'7' => array(
+		'title' => '7',
+		'floors' => 15,
+		'deadline' => new DateTime( '2015-10-01' ),
+		'coords' => '2463, 121, 2352, 377, 2455, 410, 2554, 152',
+		'schemes' => array(
+			array( 1, 'scheme-1' ),
+			array( 5, 'scheme-2' )
+		),
+		'label' => array('position' => array(95, 36))
 	)
 );
