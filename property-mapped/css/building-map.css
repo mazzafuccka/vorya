@@ -15,8 +15,8 @@
     width: 100px;
     height: 100px;
 	position: absolute;
-    bottom: 10px;
-	right: 10px;
+    top: 10px;
+	left: 300px;
     -webkit-animation: swinging 3s ease-in-out;
             animation: swinging 3s ease-in-out;
 }
@@ -55,9 +55,9 @@
 }
 
 .mapify-hover {
-    fill: rgba(255,127,127,0.25);
-    stroke: #f00;
-    stroke-width: 1;
+    fill: rgba(200,255,200,0.25);
+    stroke: #5f5;
+    stroke-width: 5;
 }
 
 .floors-building > ul {

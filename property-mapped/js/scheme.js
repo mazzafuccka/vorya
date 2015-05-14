@@ -3,32 +3,15 @@ jQuery( document ).ready(function( $ ) {
 	$( '.scheme .point' ).click( function(e) {
 		e.preventDefault();
 
+		$( '.scheme .property-info' ).hide( 'fast' );
+
 		var $about = $( this ).parent( '.point-block' ).find( '.about' );
 		
-		dlg
-		.dialog('option', 'title', $about.data( 'title' ) )
-		.html( $about.html() )
-		.dialog( 'open' );
+		$( '.scheme .property-info' ).css( { 
+			left: $( this ).position().left,
+			top: $( this ).position().top + 20
+		} ).html( $about.html() ).show( 'fast' );
 
-	} );
-
-	var dlg = $( '<div class="floors-building">' )
-	.appendTo( 'body' );
-	
-	dlg.dialog( {
-		'dialogClass' : 'wp-dialog',
-		'modal' : true,
-		'autoOpen' : false,
-		'closeOnEscape' : true,
-		'buttons' : [
-			{
-				'text' : 'Close',
-				'class' : 'button-primary',
-				'click' : function() {
-					$(this).dialog( 'close' );
-				}
-			}
-		]
 	} );
 
 } );

@@ -7,7 +7,7 @@ jQuery( document ).ready(function( $ ) {
 			},
 			delay: 0.7,
 			margin: "15px",
-			height: "130px",
+			height: "70px",
 			width: "260px"
 		}
 	} );

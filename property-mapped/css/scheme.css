@@ -19,3 +19,8 @@
 .scheme .point.aviability {
 	background-color: green;
 }
+.scheme .property-info {
+	position: absolute;
+	border: 5px solid yellow;
+	background-color: white;
+}

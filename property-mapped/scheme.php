@@ -56,4 +56,6 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 		wp_reset_postdata();
 		?>
 	</div>
+	<div class="property-info" style="display:none">
+	</div>
 </div>
