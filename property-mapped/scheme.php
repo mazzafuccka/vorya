@@ -43,15 +43,22 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 				$position = $schemes[ $scheme ]['placements'][ $property_number_floor ]['position'];
 				?>
 			<div class="point-block">
-				<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'left:' . $position[0] . 'px;top:' . $position[1] . 'px'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
+				<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'left:' . $position[0] . '%;top:' . $position[1] . '%'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
 					<?php echo $property_availability ? '+' : ''; ?>
 				</button>
 				<div class="about" style="display:none" data-title="<?php echo esc_attr( $property->post_title ); ?>">
-					<p><?php echo __( 'Property','framework' ); ?>: <a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a></p>
-					<ul>
-						<li><a href="#"><?php echo __( 'How to buy','framework' ); ?></a></li>
-						<li><a href="#"><?php echo __( 'Example of finishes','framework' ); ?></a></li>
-					</ul>
+					<div class="row">
+						<div class="col-md-8">
+							<p><?php echo __( 'Property','framework' ); ?>: <a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a></p>
+							<ul>
+								<li><a href="#"><?php echo __( 'How to buy','framework' ); ?></a></li>
+								<li><a href="#"><?php echo __( 'Example of finishes','framework' ); ?></a></li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<img src="<?php echo plugins_url( '/images/demo_simple.png', __FILE__ ); ?>">
+						</div>
+					</div>
 				</div>
 			</div>
 				<?php
