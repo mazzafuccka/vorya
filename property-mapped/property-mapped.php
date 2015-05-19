@@ -125,6 +125,16 @@ class WPPropertyMapped {
 	}
 	
 	function echo_mapped() {
+		$buildings = include plugin_dir_path( __FILE__ ) . 'buildings.config.php';
+		
+		array_walk( $buildings, function (&$building, $id) {
+			
+			$building['left-building'] = 0;
+			
+			for ( $i = 0; $i < $building['floors']; $i++ ) {
+				$building['left-floor'][ $i + 1 ] = 0;
+			}
+		} );
 		if ( isset( $_GET['scheme'] ) ) {
 			include plugin_dir_path( __FILE__ ) . 'scheme.php';
 		} else {

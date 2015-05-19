@@ -16,7 +16,7 @@
     height: 100px;
 	position: absolute;
     top: 10px;
-	left: 300px;
+	left: 23%;
     -webkit-animation: swinging 3s ease-in-out;
             animation: swinging 3s ease-in-out;
 }
@@ -60,22 +60,39 @@
     stroke-width: 5;
 }
 
-.floors-building > ul {
-	list-style-type: none;
+.floors-building > .list-group > .list-group-item {
+	padding: 3px 15px;
+	margin-left: 30px;
+	text-decoration: none;
 }
-.floors-building > ul > li {
-	width: 200px;
+.floors-building > .list-group > .list-group-item > .number {
+	position: absolute;
+	left: -30px;
+	font-weight: bold;
+}
+.floors-building > .list-group > .list-group-item-danger {
 	background-color: #eee;
-	border-bottom: 1px solid white;
-	height: 20px;
-	cursor: pointer;
 }
-.floors-building > ul > li.aviability {
-	background-color: #aaa;
-}
-.floors-building > ul > li:hover {
+.floors-building > .list-group > .list-group-item-danger:hover {
 	background-color: red;
 }
-.floors-building > ul > li.aviability:hover {
+.floors-building > .list-group > .list-group-item-danger > .badge {
+	background-color: red;
+}
+.floors-building > .list-group > .list-group-item-danger:hover > .badge {
+	background-color: white;
+	color: red;
+}
+.floors-building > .list-group > .list-group-item-success {
+	background-color: #fff;
+}
+.floors-building > .list-group > .list-group-item-success:hover {
 	background-color: green;
+}
+.floors-building > .list-group > .list-group-item-success > .badge {
+	background-color: green;
+}
+.floors-building > .list-group > .list-group-item-success:hover > .badge {
+	background-color: white;
+	color: green;
 }

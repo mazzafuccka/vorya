@@ -20,7 +20,6 @@
 	background-color: green;
 }
 .scheme .property-info {
-	position: absolute;
 	border: 5px solid yellow;
-	background-color: white;
+	margin-left: 100px;
 }

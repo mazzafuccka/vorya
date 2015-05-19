@@ -7,10 +7,7 @@ jQuery( document ).ready(function( $ ) {
 
 		var $about = $( this ).parent( '.point-block' ).find( '.about' );
 		
-		$( '.scheme .property-info' ).css( { 
-			left: $( this ).position().left,
-			top: $( this ).position().top + 20
-		} ).html( $about.html() ).show( 'fast' );
+		$( '.scheme .property-info' ).html( $about.html() ).show( 'fast' );
 
 	} );
 
