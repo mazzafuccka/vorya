@@ -1,7 +1,7 @@
 <?php
 return array(
-	'1' => array(
-		'title' => '1',
+	'5' => array(
+		'title' => '5',
 		'floors' => 20,
 		'deadline' => new DateTime( '2015-04-15' ),
 		'coords' => '5, 375, 122, 596, 200, 604, 371, 436, 341, 363, 461, 256, 432, 179, 409, 164, 210, 230',
@@ -11,8 +11,8 @@ return array(
 		),
 		'label' => array('position' => array(8, 58))
 	),
-	'2' => array(
-		'title' => '2',
+	'4' => array(
+		'title' => '4',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
 		'coords' => '528, 202, 347, 362, 436, 590, 515, 597, 661, 410, 597, 204',
@@ -33,8 +33,8 @@ return array(
 		),
 		'label' => array('position' => array(35, 47))
 	),
-	'4' => array(
-		'title' => '4',
+	'2' => array(
+		'title' => '2',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
 		'coords' => '1111, 352, 1138, 585, 1233, 586, 1274, 400, 1256, 189, 1171, 188',
@@ -44,8 +44,8 @@ return array(
 		),
 		'label' => array('position' => array(46, 58))
 	),
-	'5' => array(
-		'title' => '5',
+	'1' => array(
+		'title' => '1',
 		'floors' => 15,
 		'deadline' => new DateTime( '2015-10-01' ),
 		'coords' => '1177, 114, 1181, 184, 1258, 185, 1271, 331, 1312, 368, 1367, 347, 1360, 79, 1305, 70, 1263, 106',
