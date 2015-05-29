@@ -22,7 +22,7 @@ if ( empty( $scheme ) ) {
 $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 ?>
 <div class="row">
-	<div class="col-xs-11">
+	<div class="col-xs-10">
 		<div class="scheme">
 			<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
 			<div class="points">
@@ -57,7 +57,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 									<li><?php echo __( 'Beds','framework' ); ?>: <?php echo get_post_meta( $property->ID , 'imic_property_beds' , true ); ?></li>
 									<li><?php echo __( 'Floor','framework' ); ?>: <?php echo $property_floor; ?></li>
 								</ul>
-								<a href="#" class="btn"><?php echo __( 'More','framework' ); ?></a>
+								<a href="<?php echo get_permalink( $property->ID ); ?>" class="btn"><?php echo __( 'More','framework' ); ?></a>
 							</div>
 							<div class="col-md-4">
 								<img src="<?php echo wp_get_attachment_url( $property_sights ); ?>">
@@ -75,7 +75,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 			<div class="col-md-4 scheme-property-info" style="display:none"></div>
 		</div>
 	</div>
-	<div class="col-xs-1 list-group list-floors">
+	<div class="col-xs-2 list-group list-floors">
 	<?php
 	$query = $_GET;
 	for ( $f = $buildings[ $_GET['building'] ]['floors'] - 1; $f >= 0; $f-- ) {
