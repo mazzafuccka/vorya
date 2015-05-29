@@ -1,6 +1,5 @@
 .scheme {
 	position: relative;
-	display: inline-block;
 }
 .scheme .point {
 	position: absolute;
@@ -19,7 +18,8 @@
 .scheme .point.aviability {
 	background-color: green;
 }
-.scheme .property-info {
+.scheme-property-info {
 	border: 5px solid yellow;
 	margin-left: 100px;
+	padding: 10px;
 }

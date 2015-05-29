@@ -22,9 +22,10 @@ if ( empty( $scheme ) ) {
 $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 ?>
 <div class="row">
-	<div class="col-xs-11 scheme">
-		<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
-		<div class="points">
+	<div class="col-xs-11">
+		<div class="scheme">
+			<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
+			<div class="points">
 	<?php
 			$args = array( 'post_type' => 'property' , 'post_status' => 'publish', 'numberposts' => -1 );
 			$properties = get_posts( $args );
@@ -34,6 +35,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 				$property_floor = get_post_meta( $property->ID , 'imic_property_floor' , true );
 				$property_number_floor = get_post_meta( $property->ID , 'imic_property_number_floor' , true );
 				$property_availability = get_post_meta( $property->ID , 'imic_property_availability' , true );
+				$property_sights = get_post_meta( $property->ID , 'imic_property_sights' , true );
 				if ( ! empty( $property_building ) && $property_availability == 1 )
 					$buildings[ $property_building ]['left-building'] ++;
 					if ( ! empty( $property_floor ) )
@@ -42,33 +44,35 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 					continue;
 				$position = $schemes[ $scheme ]['placements'][ $property_number_floor ]['position'];
 				?>
-			<div class="point-block">
-				<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'left:' . $position[0] . '%;top:' . $position[1] . '%'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
+				<div class="point-block">
+					<button type="button" class="btn btn-default btn-lg point<?php echo $property_availability ? ' aviability' : ''; ?>" style="<?php echo 'left:' . $position[0] . '%;top:' . $position[1] . '%'; ?>" title="<?php echo esc_attr( $property_availability ? __( 'Aviable','framework' ) : __( 'Not aviable','framework' ) ); ?>">
 					<?php echo $property_availability ? '+' : ''; ?>
-				</button>
-				<div class="about" style="display:none" data-title="<?php echo esc_attr( $property->post_title ); ?>">
-					<div class="row">
-						<div class="col-md-8">
-							<p><?php echo __( 'Property','framework' ); ?>: <a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a></p>
-							<ul>
-								<li><a href="#"><?php echo __( 'How to buy','framework' ); ?></a></li>
-								<li><a href="#"><?php echo __( 'Example of finishes','framework' ); ?></a></li>
-							</ul>
-						</div>
-						<div class="col-md-4">
-							<img src="<?php echo plugins_url( '/images/demo_simple.png', __FILE__ ); ?>">
+					</button>
+					<div class="about" style="display:none" data-title="<?php echo esc_attr( $property->post_title ); ?>">
+						<div class="row">
+							<div class="col-md-8">
+								<p><?php echo __( 'Property','framework' ); ?>: <a href="<?php echo get_permalink( $property->ID ); ?>"><?php echo $property->post_title; ?></a></p>
+								<ul>
+									<li><?php echo __( 'Property Area','framework' ); ?>: <?php echo get_post_meta( $property->ID , 'imic_property_area' , true ); ?></li>
+									<li><?php echo __( 'Beds','framework' ); ?>: <?php echo get_post_meta( $property->ID , 'imic_property_beds' , true ); ?></li>
+									<li><?php echo __( 'Floor','framework' ); ?>: <?php echo $property_floor; ?></li>
+								</ul>
+								<a href="#" class="btn"><?php echo __( 'More','framework' ); ?></a>
+							</div>
+							<div class="col-md-4">
+								<img src="<?php echo wp_get_attachment_url( $property_sights ); ?>">
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 				<?php
 			}
 			wp_reset_postdata();
 			?>
+			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 property-info" style="display:none">
-			</div>
+			<div class="col-md-4 scheme-property-info" style="display:none"></div>
 		</div>
 	</div>
 	<div class="col-xs-1 list-group list-floors">

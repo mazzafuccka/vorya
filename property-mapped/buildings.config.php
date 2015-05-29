@@ -28,8 +28,8 @@ return array(
 		'deadline' => new DateTime( '2015-10-01' ),
 		'coords' => '842, 247, 887, 462, 964, 464, 1005, 383, 970, 175, 897, 170',
 		'schemes' => array(
-			array( 1, 'scheme-1' ),
-			array( 5, 'scheme-2' )
+			array( 1, 'single-section-first' ),
+			array( 2, 'single-section-standard' )
 		),
 		'label' => array('position' => array(35, 47))
 	),
