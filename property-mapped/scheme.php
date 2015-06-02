@@ -24,7 +24,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 <div class="row">
 	<div class="col-xs-10">
 		<div class="scheme">
-			<img src="<?php echo plugins_url( '/images/' . $scheme . '.png', __FILE__ ); ?>">
+			<img src="<?php echo plugins_url( '/images/' . $scheme . '.jpg', __FILE__ ); ?>">
 			<div class="points">
 	<?php
 			$args = array( 'post_type' => 'property' , 'post_status' => 'publish', 'numberposts' => -1 );
@@ -59,9 +59,11 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 								</ul>
 								<a href="<?php echo get_permalink( $property->ID ); ?>" class="btn"><?php echo __( 'More','framework' ); ?></a>
 							</div>
+							<?php if (!empty($property_sights)) { ?>
 							<div class="col-md-4">
 								<img src="<?php echo wp_get_attachment_url( $property_sights ); ?>">
 							</div>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
@@ -75,7 +77,7 @@ $schemes = include plugin_dir_path( __FILE__ ) . 'schemes.config.php';
 			<div class="col-md-4 scheme-property-info" style="display:none"></div>
 		</div>
 	</div>
-	<div class="col-xs-2 list-group list-floors">
+	<div class="col-xs-2 list-group list-floors pull-right">
 	<?php
 	$query = $_GET;
 	for ( $f = $buildings[ $_GET['building'] ]['floors'] - 1; $f >= 0; $f-- ) {
