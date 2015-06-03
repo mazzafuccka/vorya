@@ -60,33 +60,33 @@ return array(
 			'5' => array('position' => array(35, 25)),
 			'6' => array('position' => array(45, 25)),
 			'7' => array('position' => array(44, 62)),
-			'136' => array('position' => array(63, 62)),
-			'137' => array('position' => array(54, 62)),
-			'138' => array('position' => array(54, 25)),
-			'139' => array('position' => array(65, 25)),
-			'140' => array('position' => array(75, 25)),
-			'141' => array('position' => array(89, 25)),
-			'142' => array('position' => array(89, 56))
+			'8' => array('position' => array(63, 62)),
+			'9' => array('position' => array(54, 62)),
+			'10' => array('position' => array(54, 25)),
+			'11' => array('position' => array(65, 25)),
+			'12' => array('position' => array(75, 25)),
+			'13' => array('position' => array(89, 25)),
+			'14' => array('position' => array(89, 56))
 		)
 	),
 	'two-sections-standard' => array(
 		'placements' => array(
-			'8' => array('position' => array(19, 73)),
-			'9' => array('position' => array(9, 73)),
-			'10' => array('position' => array(9, 27)),
-			'11' => array('position' => array(22, 27)),
-			'12' => array('position' => array(35, 27)),
-			'13' => array('position' => array(46, 27)),
-			'14' => array('position' => array(46, 73)),
-			'15' => array('position' => array(37, 73)),
-			'143' => array('position' => array(63, 73)),
-			'144' => array('position' => array(54, 73)),
-			'145' => array('position' => array(54, 27)),
-			'146' => array('position' => array(65, 27)),
-			'147' => array('position' => array(78, 27)),
-			'148' => array('position' => array(91, 27)),
-			'149' => array('position' => array(91, 73)),
-			'150' => array('position' => array(81, 73))
+			'1' => array('position' => array(19, 73)),
+			'2' => array('position' => array(9, 73)),
+			'3' => array('position' => array(9, 27)),
+			'4' => array('position' => array(22, 27)),
+			'5' => array('position' => array(35, 27)),
+			'6' => array('position' => array(46, 27)),
+			'7' => array('position' => array(46, 73)),
+			'8' => array('position' => array(37, 73)),
+			'9' => array('position' => array(63, 73)),
+			'10' => array('position' => array(54, 73)),
+			'11' => array('position' => array(54, 27)),
+			'12' => array('position' => array(65, 27)),
+			'13' => array('position' => array(78, 27)),
+			'14' => array('position' => array(91, 27)),
+			'15' => array('position' => array(91, 73)),
+			'16' => array('position' => array(81, 73))
 		)
 	),
 	'single-section-first' => array(
@@ -102,14 +102,14 @@ return array(
 	),
 	'single-section-standard' => array(
 		'placements' => array(
-			'8' => array('position' => array(34, 73)),
-			'9' => array('position' => array(15, 73)),
-			'10' => array('position' => array(15, 26)),
-			'11' => array('position' => array(39, 26)),
-			'12' => array('position' => array(62, 26)),
-			'13' => array('position' => array(85, 26)),
-			'14' => array('position' => array(85, 70)),
-			'15' => array('position' => array(67, 70))
+			'1' => array('position' => array(34, 73)),
+			'2' => array('position' => array(15, 73)),
+			'3' => array('position' => array(15, 26)),
+			'4' => array('position' => array(39, 26)),
+			'5' => array('position' => array(62, 26)),
+			'6' => array('position' => array(85, 26)),
+			'7' => array('position' => array(85, 70)),
+			'8' => array('position' => array(67, 70))
 		)
 	)
 );
