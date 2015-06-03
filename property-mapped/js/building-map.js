@@ -12,6 +12,8 @@ jQuery( document ).ready(function( $ ) {
 		}
 	} );
 	
+	$('.map-overlay').insertBefore('.mapify-popOver');
+	
 	$( 'map[name="building-maphilight"] area' ).click( function( e ) {
 		e.preventDefault();
 		dlg.text( '' );
